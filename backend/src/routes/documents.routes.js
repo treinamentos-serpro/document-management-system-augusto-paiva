@@ -4,7 +4,7 @@ const { randomUUID } = require('crypto');
 const express = require('express');
 const multer = require('multer');
 
-function createDocumentRouter(documentController) {
+function createDocumentsRouter(documentsController) {
   const router = express.Router();
   const storageDirectory = path.resolve(__dirname, '../../storage');
   const upload = multer({
@@ -23,18 +23,18 @@ function createDocumentRouter(documentController) {
 
   router.post(
     '/upload',
-    documentController.requireOwner,
+    documentsController.requireOwner,
     upload.single('file'),
-    documentController.upload
+    documentsController.upload
   );
-  router.get('/documents', documentController.requireOwner, documentController.list);
+  router.get('/documents', documentsController.requireOwner, documentsController.list);
   router.get(
     '/documents/:id/download',
-    documentController.requireOwner,
-    documentController.download
+    documentsController.requireOwner,
+    documentsController.download
   );
 
   return router;
 }
 
-module.exports = { createDocumentRouter };
+module.exports = { createDocumentsRouter };
