@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import DocumentList from './components/DocumentList.jsx';
-import UploadForm from './components/UploadForm.jsx';
+import UploadComponent from './components/UploadComponent.jsx';
 import {
   downloadDocument,
   listDocuments,
@@ -73,7 +73,7 @@ export default function App() {
           />
         </div>
 
-        <UploadForm disabled={!owner.trim()} onUpload={handleUpload} />
+        <UploadComponent disabled={!owner.trim()} onUpload={handleUpload} />
 
         {status.message && <p className={`status ${status.type}`}>{status.message}</p>}
 

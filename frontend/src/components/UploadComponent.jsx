@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 
-export default function UploadForm({ disabled, onUpload }) {
+export default function UploadComponent({ disabled, onUpload }) {
   const inputRef = useRef(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);

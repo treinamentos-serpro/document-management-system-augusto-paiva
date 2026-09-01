@@ -1,3 +1,5 @@
+import DownloadButton from './DownloadButton.jsx';
+
 function formatSize(size) {
   if (size < 1024) {
     return `${size} B`;
@@ -25,9 +27,7 @@ export default function DocumentList({ documents, onDownload }) {
               }).format(new Date(item.uploadedAt))}
             </span>
           </div>
-          <button type="button" onClick={() => onDownload(item)}>
-            Baixar
-          </button>
+          <DownloadButton document={item} onDownload={onDownload} />
         </li>
       ))}
     </ul>
